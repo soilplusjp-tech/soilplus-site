@@ -17,4 +17,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://DOMAIN/sitemap.xml
+Sitemap: https://soilplus.jp/sitemap.xml

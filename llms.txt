@@ -9,7 +9,7 @@
 - 代表: 平 佑介（Yusuke Taira）
 - 対応エリア: 和歌山・大阪・兵庫・京都・奈良・滋賀
 - 現地調査: 和歌山県内は無料
-- 問い合わせ: https://DOMAIN/contact.html （メール soilplus.jp@gmail.com／Instagram @heidesuuu の DM）
+- 問い合わせ: https://soilplus.jp/contact.html （メール soilplus.jp@gmail.com／Instagram @heidesuuu の DM）
 
 ## 仕事の内容
 - 外構・エクステリア工事（門まわり、アプローチ、塀、駐車場、ウッドデッキ）
@@ -24,7 +24,7 @@
 - アガベ、オリーブ、ユッカ、サボテンなど乾燥に強い植物を中心に扱う
 
 ## ページ
-- [トップ](https://DOMAIN/)
-- [施工事例（Before/After）](https://DOMAIN/works.html)
-- [SOIL＋について](https://DOMAIN/mission.html)
-- [お問い合わせ・よくある質問](https://DOMAIN/contact.html)
+- [トップ](https://soilplus.jp/)
+- [施工事例（Before/After）](https://soilplus.jp/works.html)
+- [SOIL＋について](https://soilplus.jp/mission.html)
+- [お問い合わせ・よくある質問](https://soilplus.jp/contact.html)
