@@ -1,0 +1,189 @@
+/* ==========================================================================
+   SOIL＋ — one continuous ground (2026-10-09)
+   Like Yard Works' archive: a fixed full-screen photograph (black & white
+   driftwood) sits behind the page, and the content scrolls over it.
+   Used on Home and Works. Also: softened corners on buttons, site-wide.
+   ========================================================================== */
+.woodbg { position: fixed; inset: 0; z-index: -1; background: #121210 url("../img/wood-bw.jpg") center / cover no-repeat; }
+.woodbg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(14, 14, 12, 0.66), rgba(14, 14, 12, 0.78)); }
+
+body.has-wood { background: #121210; }
+.has-wood main {
+  --ink: #ece9e2; --stone: #aaa398; --line: rgba(236, 233, 226, 0.18);
+  --rust: #d4935f; --paper: transparent; --bone: transparent;
+  color: var(--ink);
+}
+.has-wood main > section:not(.hero):not(.mv):not(.cband):not(.phead),
+.has-wood .c3, .has-wood .svc5, .has-wood .wprev, .has-wood .steps, .has-wood .profile--home, .has-wood .wlist { background: transparent; }
+.has-wood .concept__lead { color: var(--rust); }
+.has-wood .tag { color: var(--ink); }
+.has-wood .arrow-link, .has-wood .company a { color: var(--ink); }
+.has-wood .steps ol { border-top-color: rgba(236, 233, 226, 0.5); }
+.has-wood .steps li b { color: var(--rust); }
+.has-wood .ba-switch { border-color: var(--ink); }
+.has-wood .ba-switch button { color: var(--ink); }
+.has-wood .ba-switch button.is-on { background: var(--ink); color: #121210; }
+.has-wood .header.is-scrolled:not(.is-open) { background: rgba(18, 18, 16, 0.82); }
+.has-wood .footer { background: rgba(14, 14, 12, 0.92); border-top: 1px solid rgba(236, 233, 226, 0.1); }
+.has-wood .c3__photo img, .has-wood .c3__side img, .has-wood .wgrid img { box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7); }
+
+/* softened corners: rounded, but still a square */
+.cta, .btn, .cx-dm, .inquiry__dm a, .ba-switch, .chips span, .ba__tag, .mv__more { border-radius: 6px; }
+.ba-switch { overflow: hidden; }
+.cx-page .field input, .cx-page .field textarea, .cx-form { border-radius: 6px; }
+
+/* page heads on the wood ground */
+.has-wood .phead--text { background: transparent; min-height: clamp(420px, 60vh, 600px); }
+.has-wood .phead--text::before { display: none; }
+.has-wood .phead--text h1 { font-size: clamp(72px, 11vw, 160px); }
+.phead--roots { background-color: #0f0f0d; background-size: cover; background-position: center; }
+.phead--roots::before { background: linear-gradient(to top, rgba(14, 14, 12, 0.85), rgba(14, 14, 12, 0.15) 70%); }
+/* let the roots head melt into the wood ground below */
+.has-wood .phead--roots { -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent); mask-image: linear-gradient(to bottom, #000 78%, transparent); }
+.has-wood .mbody__fig img, .has-wood .wide-photo img { box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7); }
+.has-wood .rep__name span { color: var(--stone); }
+
+/* 2026-10-09 type refinements */
+.sp-br { display: none; }
+@media (max-width: 600px) { .sp-br { display: inline; } }
+.wlist__intro { max-width: none; }
+.has-wood .phead h1 { color: var(--leaf); }
+.has-wood .phead h1 .plus { color: var(--leaf); }
+.ba-item__body .ba-meta { display: grid; grid-template-columns: auto 1fr; gap: 4px 28px; margin-top: 24px; font-family: var(--en); font-size: 17px; letter-spacing: 0.04em; line-height: 1.6; }
+.ba-item__body .ba-meta dt { color: var(--stone); letter-spacing: 0.04em; }
+.ba-meta dd { color: var(--ink); }
+.has-wood .rep__name { font-size: clamp(30px, 3.2vw, 44px); letter-spacing: 0.18em; line-height: 1.4; margin-bottom: 22px; }
+.has-wood .rep__name span { display: block; margin: 8px 0 0; font-size: clamp(16px, 1.4vw, 20px); letter-spacing: 0.16em; }
+
+/* ---------- HERO: the old olive on black, drifting slowly (2026-10-10) ---------- */
+.has-wood .hero, .has-wood .hero__stick { background: #121210; }
+.hero__frame { filter: none; }                      /* the opening frames are already monochrome */
+.hero__img { transform: scale(1.3); }                /* intro: settle from 1.3 to 1.15, leaving room to drift */
+.hero__img.is-in { transform: scale(1.15); }
+@keyframes woodDrift {
+  0%   { object-position: 48% 38%; }
+  50%  { object-position: 64% 52%; }
+  100% { object-position: 48% 38%; }
+}
+/* (pan removed 2026-10-10: the grain flows in place instead, see below) */
+.hero__shade { background: linear-gradient(to top, rgba(18, 18, 16, 0.78), rgba(18, 18, 16, 0.08) 55%, rgba(18, 18, 16, 0.3)); }
+@media
+/* phones: keep the tree in frame (it stands on the right of the picture) */
+@media (max-width: 600px) {
+  @keyframes woodDrift { 0% { object-position: 70% 40%; } 50% { object-position: 78% 50%; } 100% { object-position: 70% 40%; } }
+  .hero__img { object-position: 72% 45%; }
+}
+
+/* the green button on the dark pages: dark lettering, so it reads on the leaf green (2026-10-10) */
+.has-wood main .cta, .has-wood .cband .cta { color: #1b1a16; font-weight: 500; }
+.has-wood main .cta:hover { background: #c6da55; color: #1b1a16; }
+
+/* ---------- HERO: the grain flows like water, the tree stands still (2026-10-10) ---------- */
+/* base layer = whole picture, warped by the #flow filter; still layer = the same picture masked to the tree */
+.hero__img--flow { filter: url(#flow); }
+.hero__img--still {
+  background: url("../img/hero-olive.jpg") center / cover no-repeat;
+  -webkit-mask: url("../img/hero-olive-mask.jpg") center / cover no-repeat; mask: url("../img/hero-olive-mask.jpg") center / cover no-repeat;
+  object-fit: unset; opacity: 0; transform: scale(1.3);
+}
+.hero__img.is-in + .hero__img--still { opacity: 1; transform: scale(1.15); }
+@media (max-width: 600px) { .hero__img, .hero__img--still { object-position: 72% 45%; background-position: 72% 45%; -webkit-mask-position: 72% 45%; mask-position: 72% 45%; } }
+/* phones and reduced motion: no warp (filter cost), still layer just doubles the picture */
+@media (max-width: 900px), (prefers-reduced-motion: reduce) { .hero__img--flow { filter: none; } }
+
+/* Flow section: the numbers in rust brown, not tan */
+.has-wood .steps li b { color: #b5582c; }
+.has-wood .steps li b {
+  color: transparent;
+  background: linear-gradient(160deg, #d2834f 0%, #b5582c 45%, #7a3718 100%);
+  -webkit-background-clip: text; background-clip: text;
+  display: inline-block; padding-right: 0.1em;   /* clip box; the padding keeps the serif's edge inside it */
+}
+.c3__side img { object-position: 30% 50%; }
+/* Flow numbers: filled with the client's rust texture (2026-10-10) */
+.has-wood .steps li b { background: url("../img/steps-rust.jpg") center / 260px auto; -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 500; }
+.has-wood .steps li b { font-size: clamp(48px, 4.4vw, 64px); font-weight: 600; line-height: 1; background-size: 220px auto; }
+/* Services: Japanese labels and the hovered title in the same rust texture as the Flow numbers (2026-10-11) */
+.has-wood .svc5__row h3 small,
+html.motion .has-wood .svc5__row:hover h3 {
+  background: url("../img/steps-rust.jpg") center / 220px auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.has-wood .svc5__row h3 small { font-weight: 600; }
+.has-wood .svc5__row h3 .ch { background: inherit; -webkit-background-clip: text; background-clip: text; }
+/* thin type can't carry the texture: use the rust's own colours as a gradient instead */
+.has-wood .svc5__row h3 small,
+html.motion .has-wood .svc5__row:hover h3 {
+  background: linear-gradient(100deg, #e0955c 0%, #c56a35 45%, #9a4a24 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero__img--still { -webkit-mask-mode: luminance; mask-mode: luminance; -webkit-mask-source-type: luminance; }
+.nw { display: inline-block; white-space: nowrap; }
+
+/* 2026-10-11: HERO shown still, at full quality — no zoom, no warp, no scroll scaling */
+.hero__img, .hero__img.is-in, html.motion .hero__img { transform: none !important; scale: 1 !important; translate: 0 !important; filter: none !important; animation: none !important; height: 100% !important; image-rendering: auto; }
+.hero__img { opacity: 0; transition: opacity 1.2s ease; }
+.hero__img.is-in { opacity: 1; }
+
+/* phones: the Mission/Area and Contact bands become inset cards with softened corners */
+@media (max-width: 820px) {
+  .mv, .cband { gap: 12px; padding: 12px 16px; background: transparent; }
+  .mv__item, .cband__lead, .cband__act { border-radius: 10px; overflow: hidden; }
+  .cband { padding-top: 0; }
+}
+.hero__pic { display: contents; }
+@media (max-width: 600px) { .hero__img { object-position: 50% 50% !important; } }
+/* phones, every page: inset cards with softened corners for bands, photos and sliders */
+@media (max-width: 820px) {
+  .ba, .wgrid img, .c3__photo, .mbody__fig img, .wide-photo, .cx-form { border-radius: 10px; overflow: hidden; }
+  .wide-photo { margin: 0 16px; }
+  .c3__photo { margin: 16px 16px 0; }
+}
+
+/* dark pages: the header is always light (logo, links, icons) — no dark-on-dark moment during load or scroll (2026-10-11) */
+.has-wood .header { color: #fff; }
+.has-wood .header .lg { filter: invert(1); }
+.has-wood .header.is-scrolled:not(.is-open) { background: rgba(18, 18, 16, 0.82); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+/* Instagram: tap / hover shows Instagram's own colours (phones get it on tap) */
+.ig-link { border-radius: 10px; transition: background 0.25s, color 0.25s; }
+.ig-link:hover, .ig-link:active, .ig-link:focus-visible {
+  opacity: 1; color: #fff;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+.ig-text:active, .cx-dm:active, .inquiry__dm a:active {
+  background: linear-gradient(45deg, #feda75 0%, #fa7e1e 25%, #d62976 55%, #962fbf 78%, #4f5bd5 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.ig-text:active svg, .cx-dm:active svg { color: #d62976; }
+/* Instagram (2026-10-11 rev.): no badge — the thin line itself turns Instagram's colours */
+.ig-link:hover, .ig-link:active, .ig-link:focus-visible { background: none; color: inherit; }
+.ig-link:hover, .ig-link:active, .ig-link:focus-visible,
+.ig-text:hover, .ig-text:active, .cx-dm:hover, .cx-dm:active, .inquiry__dm a:active { --igs: url(#igGrad); --igf: #d62976; }
+.ig-text:active svg, .cx-dm:active svg, .footer .ig-text:hover svg { color: inherit; }
+
+/* ---------- 2026-10-14: 和文の改行は文節単位（1文字だけの行・単語途中の折返しを防ぐ） ---------- */
+:lang(ja) :is(p, dd, dt, li, h1, h2, h3, figcaption) { word-break: auto-phrase; text-wrap: pretty; }
+
+/* Works ヘッダー：事例の目次（見出しと一覧の間の空白を埋める） */
+.wnav { list-style: none; margin: clamp(40px, 5vw, 64px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255, 255, 255, 0.28); }
+.wnav li + li { border-left: 1px solid rgba(255, 255, 255, 0.28); }
+.wnav a { display: flex; flex-direction: column; gap: 6px; padding: 22px clamp(14px, 2vw, 28px) 4px; font-size: 14.5px; letter-spacing: 0.12em; line-height: 1.7; transition: color 0.3s; }
+.wnav li:first-child a { padding-left: 0; }
+.wnav b { font-family: var(--en); font-weight: 400; font-size: 26px; letter-spacing: 0.04em; color: var(--leaf); line-height: 1; }
+.wnav i { font-family: var(--en); font-size: 13px; letter-spacing: 0.08em; opacity: 0.65; }
+.wnav a:hover { color: var(--leaf); }
+.has-wood .phead--text { min-height: 0; padding-top: clamp(140px, 16vw, 200px); }
+@media (max-width: 600px) {
+  .wnav { grid-template-columns: 1fr; }
+  .wnav li + li { border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.18); }
+  .wnav a { flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 4px 14px; padding: 14px 0; }
+  .wnav b { font-size: 20px; }
+}
+
+/* Mission 代表：1行で見せる（スマホは文節で折る） */
+@media (min-width: 601px) { .rep__body .rep__one { max-width: none; } }
+.phead--text + .wlist { padding-top: clamp(32px, 4vw, 56px); }
+.has-wood .phead--text { padding-bottom: 0; }
+.phead--text + .wlist .wlist__intro { margin-bottom: clamp(36px, 4.5vw, 64px); }
+.mv__item--rust p { max-width: 38em; }
+.scope .svc5__lead { margin-bottom: clamp(28px, 3.5vw, 44px); }
+.mbody__text p { max-width: none; }
