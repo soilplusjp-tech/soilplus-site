@@ -209,3 +209,14 @@ html.motion .cx-hero.is-shown .cx-photo img { opacity: 1; scale: 1; }
 .cx-faq dt { padding: 20px 0 6px; font-weight: 500; font-size: 15px; letter-spacing: 0.06em; }
 .cx-faq dt::before { content: "Q. "; color: var(--cx-rust); font-family: var(--en); }
 .cx-faq dd { padding-bottom: 20px; border-bottom: 1px solid var(--cx-line); font-size: 14px; line-height: 2; color: var(--cx-label); }
+
+/* 2026-10-15 ご依頼の流れ 01 のボタン（Contact 版は土の茶） */
+.cx-aside li .step-cta { grid-column: 2; justify-self: start; margin-top: 10px; background: var(--cx-soil, #4a3626); color: #fff; }
+
+/* 2026-10-15 Contact の石の写真：iPhone(Safari) で高さ0になり消えていた。スマホは画像の自然な比率で表示し、フェードにも頼らない */
+@media (max-width: 900px) {
+  .cx-photo { aspect-ratio: auto; height: auto; }
+  .cx-photo img { position: relative; inset: auto; display: block; width: 100%; height: auto; }
+  html.motion .cx-photo img { opacity: 1; scale: 1; transition: none; }
+}
+#contact-form { scroll-margin-top: 110px; }

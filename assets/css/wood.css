@@ -187,3 +187,9 @@ html.motion .has-wood .svc5__row:hover h3 {
 .mv__item--rust p { max-width: 38em; }
 .scope .svc5__lead { margin-bottom: clamp(28px, 3.5vw, 44px); }
 .mbody__text p { max-width: none; }
+
+/* 2026-10-15 ご依頼の流れ 01 にお問い合わせボタン */
+.step-cta { display: inline-flex; align-items: center; gap: 12px; margin-top: 16px; padding: 10px 18px; border-radius: 6px; background: var(--leaf); color: #1b1a16; font-size: 12.5px; letter-spacing: 0.14em; line-height: 1.4; white-space: nowrap; transition: filter 0.3s; }
+.step-cta svg { width: 22px; height: 8px; flex: none; }
+.step-cta:hover { filter: brightness(1.08); }
+
