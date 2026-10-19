@@ -217,3 +217,11 @@ html.motion .has-wood .svc5__row:hover h3 {
 .svc5__thumb img[src*="agave-wall"] { object-position: 50% 72%; }
 .svc5__thumb img[src*="philodendron"] { object-position: 40% 68%; }
 .svc5__thumb img[src*="palm-shop"] { object-position: 50% 55%; }
+/* 2026-10-19 代表欄：写真を右に置き、見出し｜名前と文｜写真 の3列で釣り合わせる */
+.rep__body { display: grid; grid-template-columns: 1fr minmax(220px, 300px); column-gap: clamp(32px, 5vw, 80px); align-items: start; }
+.rep__body > :not(.rep__fig) { grid-column: 1; }
+.rep__body .rep__fig { grid-column: 2; grid-row: 1 / span 3; margin: 0; max-width: none; }
+@media (max-width: 820px) {
+  .rep__body { grid-template-columns: 1fr; }
+  .rep__body .rep__fig { grid-column: 1; grid-row: auto; order: -1; margin-bottom: 28px; }
+}
