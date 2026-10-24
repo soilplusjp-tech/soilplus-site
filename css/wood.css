@@ -234,3 +234,41 @@ html.motion .has-wood .svc5__row:hover h3 {
   .rep-grid { grid-template-columns: 1fr; }
   .rep-grid .rep__fig { grid-column: 1; grid-row: auto; margin-top: 8px; }
 }
+
+/* ==========================================================================
+   2026-10-24 スマホの改行を全機種で同一にする
+   文章は <span class="l"> で1行ずつ区切ってある（PCではつながって流れる）。
+   スマホでは1行＝1行で折り返さず、最長行（--n 文字ぶん）が必ず収まるよう
+   文字サイズを通常サイズを上限に縮める。<br> はPC専用の改行。
+   ========================================================================== */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+@media (max-width: 600px) {
+  .fit br { display: none; }
+  .fit { container-type: inline-size; word-break: normal; }
+  .fit .l { display: block; white-space: nowrap; font-size: min(1em, calc(100cqi / (var(--n) * 1.17))); }
+  .fit .l .nw { display: inline; }
+}
+@supports not (width: 1cqi) {
+  @media (max-width: 600px) { .fit .l { white-space: normal; font-size: 1em; } }
+}
+/* Works 目次：スマホでは名前とタグを必ず2行に分ける（機種で折返しが変わらないように） */
+@media (max-width: 820px) {
+  .wnav a { flex-direction: column; flex-wrap: nowrap; align-items: flex-start; gap: 2px; }
+  .wnav a { display: grid; grid-template-columns: 34px 1fr; }
+  .wnav b { grid-row: 1 / span 2; }
+}
+.sp-br { display: none; }
+@media (max-width: 600px) { .sp-br { display: inline; } }
+/* 2026-10-24 スマホ：仕事の内容の本文は写真の下まで横幅いっぱいに使う（長い行が小さくなりすぎないように） */
+@media (max-width: 820px) {
+  .svc5__row p { grid-column: 1 / -1; max-width: none; }
+}
+/* 2026-10-24 コンセプト文：flex の中だと幅の基準が0になり文字が消えるので、横幅いっぱいを明示 */
+@media (max-width: 600px) {
+  .concept__text { display: block; }
+  .concept__text p.fit { width: 100%; }
+}
+/* 2026-10-24 スマホ：flex の中に置いた .fit も幅の基準が0にならないよう、常に横幅いっぱいを取る（Contact 帯の Instagram 文が消えていた） */
+@media (max-width: 600px) {
+  .fit { width: 100%; box-sizing: border-box; }
+}
