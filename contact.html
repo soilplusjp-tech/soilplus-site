@@ -80,7 +80,18 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Shippori+Mincho:wght@400;500;600&family=Archivo:wght@500;600;800&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@500;600;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Archivo:wght@500;600;800&display=swap"></noscript>
+<!-- 2026-11-20 表示速度：和文の明朝体はサイトで使う文字だけの版をサイト内から読む（見た目は同じ Shippori Mincho） -->
+<link rel="preload" href="assets/fonts/shippori-regular.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "Shippori Mincho"; font-weight: 400; font-style: normal; font-display: swap; src: url(assets/fonts/shippori-regular.woff2) format("woff2"); }
+@font-face { font-family: "Shippori Mincho"; font-weight: 500; font-style: normal; font-display: swap; src: url(assets/fonts/shippori-medium.woff2) format("woff2"); }
+@font-face { font-family: "Shippori Mincho"; font-weight: 600; font-style: normal; font-display: swap; src: url(assets/fonts/shippori-semibold.woff2) format("woff2"); }
+/* スマホは木目背景を小さい版に／ページ移動の幕の写真は幕を使うときだけ読む */
+@media (max-width: 600px) { .woodbg { background-image: url(assets/img/wood-bw-sp.jpg) !important; } }
+.pt:not(.is-cover):not(.is-in):not(.is-out) { background-image: none; }
+</style>
 <link rel="stylesheet" href="assets/css/style.css?v=20261024e">
 <link rel="stylesheet" href="assets/css/pages.css?v=20261024e">
 <link rel="stylesheet" href="assets/css/v4.css?v=20261024e">
@@ -148,7 +159,7 @@
       <p class="cx-hero__note fit" style="--n:15.4"><span class="l">個人のお客様も、</span><span class="l">工務店・設計事務所の方も。</span><br><span class="l">内容を見て、</span><span class="l">2〜3営業日以内にご返信します。</span></p>
       <a class="cx-hero__down" href="#form">フォームへ</a>
     </div>
-    <figure class="cx-photo"><img src="assets/img/contact-stone.jpg" width="1028" height="1530" alt="SOIL のロゴを彫った石と、ゼラニウムの枝" fetchpriority="high"></figure>
+    <figure class="cx-photo"><img src="assets/img/contact-stone.jpg" srcset="assets/img/contact-stone-sp.jpg 800w, assets/img/contact-stone.jpg 1028w" sizes="(max-width: 600px) 100vw, 50vw" width="1028" height="1530" alt="SOIL のロゴを彫った石と、ゼラニウムの枝" fetchpriority="high"></figure>
     <p class="cx-hero__mark" aria-hidden="true"><span class="nw">SOIL+ — Garden &amp; Exterior,</span><br class="sp-br"> <span class="nw">Wakayama</span></p>
   </section>
 
